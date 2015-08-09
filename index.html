@@ -6,7 +6,6 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <script src="project.js"></script>
     <link rel="stylesheet" href="css.css">
     <meta charset="utf-8">
     <title>【AngularJS 開發實戰：新手入門篇】實作練習</title>
@@ -82,10 +81,9 @@
     </table>
     <script>
     var app = angular.module('app',[])
-    .controller('MainCtrl', MainCtrl)
-    .config([function () {
-    	
-    }]);
+    .config(function ($controllerProvider) {
+    	$controllerProvider.allowGlobals();
+    });
 
     function MainCtrl() {
         var vm = this;
