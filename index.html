@@ -18,6 +18,7 @@
 <body>
     <div class="container" ng-controller="MainCtrl as m">
         版本:{{version}}
+        <hr/> {{m.debug()}}
         <hr>
         <button onClick="getVersion(this)">get version</button>
         <hr/> 商品名稱:
