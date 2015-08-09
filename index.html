@@ -12,6 +12,8 @@
 </head>
 
 <body ng-controller="MainCtrl as m">
+    版本:{{version}}
+    <hr>
     商品名稱:
     <input type="text" ng-model="m.PName">
     <br> 商品價格:
@@ -84,7 +86,10 @@
         .config(function($controllerProvider) {
             $controllerProvider.allowGlobals();
         })
-        .value('version', '1.0.0');;
+        .value('version', '1.0.0')
+        .run(function(version, $rootScope) {
+            $rootScope.version = version;
+        });;
 
     function MainCtrl() {
         var vm = this;
