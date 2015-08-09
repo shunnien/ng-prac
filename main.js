@@ -16,4 +16,6 @@ function getVersion(btn) {
 function getPName(btn){
 	var $scope = angular.element(btn).scope();
 	alert($scope.m.PName);
+	$scope.m.PName += "!";
+	$scope.$apply();
 }
