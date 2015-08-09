@@ -13,3 +13,7 @@ function getVersion(btn) {
     var version = $injector.get('version');
     alert(version);
 }
+function getPName(btn){
+	var $scope = angular.element(btn).scope();
+	alert($scope.m.PName);
+}
