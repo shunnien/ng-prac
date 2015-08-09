@@ -18,7 +18,9 @@
 <body>
     <div class="container" ng-controller="MainCtrl as m">
         版本:{{version}}
-        <hr> 商品名稱:
+        <hr>
+        <button onClick="getVersion(this)">get version</button>
+        <hr/> 商品名稱:
         <input type="text" ng-model="m.PName">
         <br> 商品價格:
         <input type="number" ng-model="m.Price">
@@ -87,4 +89,5 @@
         </table>
     </div>
 </body>
+
 </html>

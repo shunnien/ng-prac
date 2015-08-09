@@ -6,3 +6,9 @@ angular.module('app', ['ngCookies'])
     .run(function(version, $rootScope) {
         $rootScope.version = version;
     });
+
+function getVersion(btn) {
+    var $injector = angular.element(btn).injector();
+    var version = $injector.get('version');
+    alert(version);
+}
