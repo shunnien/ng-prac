@@ -5,6 +5,7 @@ angular.module('app', ['ngCookies'])
     })
     .run(function(version, $rootScope) {
         $rootScope.version = version;
+        $rootScope.name = "Allen";
     });
 
 function getVersion(btn) {

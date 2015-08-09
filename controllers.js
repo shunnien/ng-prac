@@ -2,14 +2,15 @@
     angular.module('app')
         .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl(version, $cookies) {
+    function MainCtrl(version, $cookies,$scope) {
         var vm = this;
         vm.last_url = $cookies.get('last_url');
         //vm.IsDebug = false;
         vm.version = version;
         
+        $scope.name = "yu";
         var counter = 1;
-        vm.debug = function(counter) {
+        vm.debug = function() {
             console.log(counter++);
         }
 
