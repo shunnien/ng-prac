@@ -80,10 +80,11 @@
         </tr>
     </table>
     <script>
-    var app = angular.module('app',[])
-    .config(function ($controllerProvider) {
-    	$controllerProvider.allowGlobals();
-    });
+    var app = angular.module('app', [])
+        .config(function($controllerProvider) {
+            $controllerProvider.allowGlobals();
+        })
+        .value('version', '1.0.0');;
 
     function MainCtrl() {
         var vm = this;
