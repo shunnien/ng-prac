@@ -6,15 +6,15 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <link rel="stylesheet" href="css.css">
-    <meta charset="utf-8">
-    <title>【AngularJS 開發實戰：新手入門篇】實作練習</title>
+    <script src="//code.angularjs.org/1.4.3/angular-cookies.js"></script>
+        <link rel="stylesheet" href="css.css">
+        <meta charset="utf-8">
+        <title>【AngularJS 開發實戰：新手入門篇】實作練習</title>
 </head>
 
 <body ng-controller="MainCtrl as m">
     版本:{{version}}
-    <hr>
-    商品名稱:
+    <hr> 商品名稱:
     <input type="text" ng-model="m.PName">
     <br> 商品價格:
     <input type="number" ng-model="m.Price">
@@ -82,18 +82,19 @@
         </tr>
     </table>
     <script>
-    var app = angular.module('app', [])
-        .config(function($controllerProvider) {
+    var app = angular.module('app', ['ngCookies'])
+        .config(function($controllerProvider, $cookiesProvider) {
             $controllerProvider.allowGlobals();
+            $cookiesProvider.defaults.path = '/';
         })
         .value('version', '1.0.0')
         .run(function(version, $rootScope) {
             $rootScope.version = version;
         });;
 
-    function MainCtrl() {
+    function MainCtrl($cookies) {
         var vm = this;
-
+        vm.last_url = $cookies.get('last_url');
         //vm.IsDebug = false;
 
         vm.PName = 'T-Shirt (Female)';
